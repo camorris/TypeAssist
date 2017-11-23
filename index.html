@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   
 </head>
 <body>
 
-
+<h1 id="pointsA">Score A: 0</h1>
+<h1 id="pointsB">Score B: 0</h1>
   <div class="keys">
-    <div data-key="65" class="key" id='A' onload="createRain()">
-      <kbd id='A'>A</kbd>
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
     <div data-key="83" class="key">
@@ -47,8 +47,12 @@
       <kbd>L</kbd>
       <span class="sound">tink</span>
     </div>
+    <div data-key="186" class="key">
+        <kbd>;</kbd>
+        <span class="sound">clap</span>
+      </div>
   </div>
-  <canvas id="canvasRegn" width="600" height="450"style="margin:100px;"></canvas>
+
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
@@ -59,55 +63,15 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+  <audio data-key="186" src="sounds/tink.wav"></audio>
+  
 
 
 
 <script>
-  // number of drops created.
-var nbDrop = 858; 
-var keybly = document.querySelectorAll('.key');
-
-// function to generate a random number range.
-function randRange( minNum, maxNum) {
-  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
-}
-
-// function to generate drops
-function createRain() {
-	for( i=1;i<nbDrop;i++) {
-	var dropLeft = randRange(0,1600);
-	var dropTop = randRange(-1000,1400);
-	keys.css('left',dropLeft);
-	keys.css('top',dropTop);
-  }
-}
-// Make it rain
-keybly.forEach(key => key.addEventListener('onclick', createRain));
-/*
-  var $body = $('body')
-
-     function rainKeys(speed) {
-      var fallingCats = setInterval(function() {
-          var $cat = $('.key');
-          var horiz = Math.floor(Math.random() * ($body.width() - 100)) + 'px';
-          var vert = $body.height() + 50 + 'px';
-
+    var pointsElementA = document.getElementById("pointsA").value;
+    var pointsElementB = document.getElementById("pointsB").value;
   
-          $cat.css({
-              left: horiz
-          });
-          $cat.animate({
-              top: vert
-          }, speed);
-
-          $body.append($cat);
-
-      }, 500);
-    }
-        
-  
-  window.addEventListener('load', rainKeys)
-*/
  function playSound(e){
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)

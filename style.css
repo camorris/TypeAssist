@@ -14,9 +14,9 @@ body,html {
 .keys {
   display: flex;
   flex: 1;
-
   align-items: center;
   justify-content: center;
+  
 }
 
 .key {
@@ -31,8 +31,9 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-  -webkit-animation: fall 5s linear infinite;
-  -moz-animation: fall 5s linear infinite;
+  -webkit-animation: fallingLeaves 10s infinite  linear;
+  -moz-animation: fallingLeaves 10s infinite  linear;
+  
 }
 
 .playing {
@@ -53,14 +54,79 @@ kbd {
   color: #ffc600;
 }
 
-html{height:100%;}
 
 
 /* animate the drops*/
-@-webkit-keyframes fall {
+/* @-webkit-keyframes fall {
 	to {margin-top:900px;}
 }
 @-moz-keyframes fall {
 	to {margin-top:900px;}
+} */
+
+/* try this out */
+
+
+
+
+
+    
+   
+div:nth-child(5n+5) {
+
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+}
+ div:nth-child(3n+2) {
+
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+}
+ div:nth-child(2n+5) {
+
+    -webkit-animation-delay: 1.7s;
+    -moz-animation-delay: 1.7s;
 }
 
+div:nth-child(3n+10) {
+
+    -webkit-animation-delay: 2.7s;
+    -moz-animation-delay: 2.7s;
+}
+ div:nth-child(7n+2) {
+
+    -webkit-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+}
+ div:nth-child(4n+5) {
+
+    -webkit-animation-delay: 5.5s;
+    -moz-animation-delay: 5.5s;
+}
+ div:nth-child(3n+7) {
+
+    -webkit-animation-delay: 8s;
+    -moz-animation-delay: 8s;
+}
+@-webkit-keyframes fallingLeaves {
+  0% {
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
+@-moz-keyframes fallingLeaves {
+  0% {
+	-webkit-transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+	-webkit-transform: translate(100px, 600px) rotateZ(270deg); 
+  }
+  100% {
+	-webkit-transform: translate(150px, 800px) rotateZ(360deg);
+  }
+}
