@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
-  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 
 <h1 id="pointsA">Score A: 0</h1>
 <h1 id="pointsB">Score B: 0</h1>
+<h2 class="turn">Player A</h2> 
+<h3 id="timeLeft">Time Left: 30 seconds</h3>
+
   <div class="keys">
-    <div data-key="65" class="key">
+    <div data-key="65" class="key" id="AAA">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
@@ -67,30 +73,6 @@
   
 
 
-
-<script>
-    var pointsElementA = document.getElementById("pointsA").value;
-    var pointsElementB = document.getElementById("pointsB").value;
-  
- function playSound(e){
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-    if(!audio)return;
-    audio.currentTime = 0;
-    audio.play();
-    key.classList.add('playing');
-};
-
-function removeTransition(e){
-  if (e.propertyName !== 'transform')return;
-  this.classList.remove('playing');
-}
-const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
-window.addEventListener('keydown', playSound)
-</script>
-
-
+<script src="js/main.js"></script>
 </body>
 </html>
