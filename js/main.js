@@ -12,11 +12,18 @@ var timesPlayed = 0
 var currentPlayer = 'playerA' 
 var newBanana= document.getElementById('start')
 var key = document.getElementsByClassName('key')
-// // var position = key.getBoundingClientRect();
-// var x = position.left;
-// var y = position.top;
 
-console.log(pointsElementA)
+
+
+// function four() {
+//   var elements = document.getElementsByClassName("key");
+//   var i;
+//   for (i = 0; i < elements.length; i++) {
+//       elements[i].style.border = " .4rem solid blue";
+  
+      
+//   }
+// }
 
 
 
@@ -88,9 +95,13 @@ key.classList.add('playing');
 };
 
 function removeTransition(e){
+  var elements = document.getElementsByClassName("key");
+  var i;
+  for (i = 0; i < elements.length; i++) {
+    this.classList.remove('playing');
 if (e.propertyName !== 'transform')return;
 this.classList.remove('playing');
-}
+}}
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
@@ -99,9 +110,9 @@ keys.forEach(key => key.addEventListener('transitionend', removeTransition));
       
      
 
-  console.log(key)
+ 
 
 
 window.addEventListener('keydown', playSound, )
 window.addEventListener('keydown', addScore,)
-window.addEventListener('keyup', removeTransition)
+
