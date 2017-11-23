@@ -11,8 +11,8 @@
 
 
   <div class="keys">
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
+    <div data-key="65" class="key" id='A' onload="createRain()">
+      <kbd id='A'>A</kbd>
       <span class="sound">clap</span>
     </div>
     <div data-key="83" class="key">
@@ -60,11 +60,12 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
-  <section class="rain"></section>
+
 
 <script>
   // number of drops created.
 var nbDrop = 858; 
+var keybly = document.querySelectorAll('.key');
 
 // function to generate a random number range.
 function randRange( minNum, maxNum) {
@@ -73,19 +74,15 @@ function randRange( minNum, maxNum) {
 
 // function to generate drops
 function createRain() {
-
 	for( i=1;i<nbDrop;i++) {
 	var dropLeft = randRange(0,1600);
 	var dropTop = randRange(-1000,1400);
-
-	$('.rain').append('<div class="key" id="key'+i+'"></div>');
-	$('#key'+i).css('left',dropLeft);
-	$('#key'+i).css('top',dropTop);
-	}
-
+	keys.css('left',dropLeft);
+	keys.css('top',dropTop);
+  }
 }
 // Make it rain
-createRain();
+keybly.forEach(key => key.addEventListener('onclick', createRain));
 /*
   var $body = $('body')
 
