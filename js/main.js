@@ -2,7 +2,7 @@ var timeLeftElement = document.getElementById('timeLeft')
 var resetBtn = document.getElementById('clear')
 var pointsElementA = document.getElementById('pointsA')
 var pointsElementB = document.getElementById('pointsB')
-var playerTurn = document.getElementsByClassName('turn') 
+var playerTurn = document.getElementById('turn') 
 var speed = 1000
 var score = 0 
 var seconds = 30
@@ -41,12 +41,12 @@ var key = document.getElementsByClassName('key')
           if (e.propertyName !== 'transform')return;
           if(!audio)return;
 
-          theIntervalId = setInterval(countDown, speed,)
+         
       }
-      
+      theIntervalId = setInterval(countDown, speed,)
       
   //<---This if statement allows for score increases, size decreases, speed increases for each player--->//
-    function countDown(e){
+    function countDown(){
       seconds = seconds - 1;
       timeLeftElement.innerHTML = ( "Time Left: " + seconds + " seconds");
       
