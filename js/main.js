@@ -20,6 +20,30 @@ var divs = document.querySelectorAll("key div");
 // //          divs.classList.toggle('key2');
 // //     });
 // }
+ function resetGame(){
+  var tired = document.querySelectorAll(".key");
+  for (var i=0; i < tired.length; i++){
+    if(tired.length > i){
+      tired[i].classList.add('key');
+      tired[i].classList.remove('key1');
+      tired[i].classList.remove('key2');
+      tired[i].classList.remove('key3');
+    } else{ 
+      console.log('dummy')
+    };
+  score = 0
+  pointsElementA.innerHTML = ("Score A: 0") 
+  pointsElementB.innerHTML = ("Score B: 0")
+  clearInterval(theIntervalId)
+  playerTurn.innerHtml = (`${!currentPlayer}`)
+  speed = 1000
+  seconds = 30
+  timeLeftElement.innerHTML = ("Time Left: " + seconds + " seconds")
+
+}}
+
+
+
 
 function myFunction() {
   var tired = document.querySelectorAll(".key");
@@ -71,12 +95,8 @@ function myFunction3() {
       
           pointsElementB.innerHTML = ("Score B: " + score)
           }
-          // theIntervalId = setInterval(countDown, speed)
-          
-
-         
       }
-      
+      // theIntervalId = setInterval(countDown, speed,)
       
   //<---This if statement allows for score increases, size decreases, speed increases for each player--->//
     function countDown(){
@@ -88,8 +108,9 @@ function myFunction3() {
           currentPlayer = "playerB" //kyle
   // //<---This if statement allows us to see that PlayerB should be playing plus it puts the speed, interval and size back to its orginal properties--->//
           if (currentPlayer === "playerB"){
+            clearInterval( theIntervalId );
           playerTurn.innerHTML = ('Player B')};
-          clearInterval( theIntervalId );
+          
           alert("Your score is " + score);
   // //<---This if statement makes sure that score based off how many times the banana was clicked is assigned to the right player the first time its played--->//
           if(playerAScore == null){
