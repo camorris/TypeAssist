@@ -1,15 +1,14 @@
 html {
   font-size: 10px;
-  background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+  background: url(https://s-media-cache-ak0.pinimg.com/originals/5b/63/b5/5b63b58ad5ccf56cc03dd4dd14fe1a95.jpg) bottom center;
   background-size: cover;
 }
 body,html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  overflow:hidden;
+  font-family: 'Montserrat', sans-serif;  overflow:hidden;
   height:100%;
-  color: white;
+  color: black;
 }
 
 .keys {
@@ -17,6 +16,7 @@ body,html {
   flex: 1;
   align-items: center;
   justify-content: center;
+  margin-right: 200px
   
 }
 
@@ -24,7 +24,8 @@ body,html {
   border: .4rem solid black;
   border-radius: .5rem;
   margin: 1rem;
-  margin-top: -400px;
+  margin-top: -600px !important;
+
   font-size: 1.5rem;
   padding: .5rem .25rem;
   transition: all .07s ease;
@@ -38,7 +39,7 @@ body,html {
   border: .4rem solid black;
   border-radius: .5rem;
   margin: 1rem;
-  margin-top: -400px;
+  margin-top: -600px !important;
   font-size: 1.5rem;
   padding: .5rem .25rem;
   transition: all .07s ease;
@@ -56,7 +57,7 @@ body,html {
   border: .4rem solid black;
   border-radius: .5rem;
   margin: 1rem;
-  margin-top: -400px;
+  margin-top: -600px !important;
   font-size: 1.5rem;
   padding: .5rem .25rem;
   transition: all .07s ease;
@@ -73,7 +74,7 @@ body,html {
   border: .4rem solid black;
   border-radius: .5rem;
   margin: 1rem;
-  margin-top: -400px;
+  margin-top: -600px !important;
   font-size: 1.5rem;
   padding: .5rem .25rem;
   transition: all .07s ease;
@@ -150,12 +151,12 @@ kbd {
   
   }
   75% {
-  -webkit-transform: translate(100px, 600px); 
+  -webkit-transform: translate(100px, 1500px); 
   
  
   }
   100% {
-  -webkit-transform: translate(150px, 800px) ;
+  -webkit-transform: translate(100px, 1500px) ;
   
   }
 }
@@ -165,11 +166,11 @@ kbd {
   
   }
   75% {
-  -webkit-transform: translate(100px, 600px) ; 
+  -webkit-transform: translate(100px, 1500px) ; 
 
   }
   100% {
-  -webkit-transform: translate(150px, 800px) ;
+  -webkit-transform: translate(150px,1500px) ;
  
   }
 } 
@@ -187,4 +188,45 @@ kbd {
 .effect {
   background-color: green;
   border-color: blue;
+}
+
+button{
+  color: black;
+  background-color: #00a2ff55;
+  display: block !important;
+  
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 90px;
+  height: 50px;
+ font-size: 15px;
+ font-family: 'Montserrat', sans-serif;
+ position: relative;
+  margin-left:auto;
+  margin-right:auto 130px;
+ 
+}
+
+button:hover{
+  background-color: cyan;
+}
+.textSection{
+display: block;
+border:1px solid rgba(128, 128, 128, 0.24);
+background-color: rgba(128, 128, 128, 0.24);
+box-shadow: 2.5px 1.25px 1.25px rgba(211, 211, 211, 0.329);
+margin-left: 10px;
+margin-left:auto;
+margin-right:auto;
+width:200px;
+float: left;
+margin-top: 150px;
+text-align: right;
+padding: 3rem;
+position: relative;
+}
+
+h5{
+  font-size: 50px;
 }

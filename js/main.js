@@ -13,13 +13,10 @@ var currentPlayer = 'playerA'
 var fasterButton = document.getElementById('start')
 var key = document.getElementsByClassName('key');
 var divs = document.querySelectorAll("key div");
+var  tryMe = document.getElementById('try');
 
-// // var circle = document.querySelectorAll(".start");
-// // for(var i = 0; i < circle.length; i++){
-// //     circle[i].addEventListener('click', function(){
-// //          divs.classList.toggle('key2');
-// //     });
-// }
+
+
  function resetGame(){
   var tired = document.querySelectorAll(".key");
   for (var i=0; i < tired.length; i++){
@@ -28,13 +25,14 @@ var divs = document.querySelectorAll("key div");
       tired[i].classList.remove('key1');
       tired[i].classList.remove('key2');
       tired[i].classList.remove('key3');
+      clearInterval(theIntervalId);
     } else{ 
       console.log('dummy')
     };
   score = 0
   pointsElementA.innerHTML = ("Score A: 0") 
   pointsElementB.innerHTML = ("Score B: 0")
-  clearInterval(theIntervalId)
+  // clearInterval(theIntervalId)
   playerTurn.innerHtml = (`${!currentPlayer}`)
   speed = 1000
   seconds = 30
@@ -102,16 +100,20 @@ function myFunction3() {
     function countDown(){
       seconds = seconds - 1;
       timeLeftElement.innerHTML = ( "Time Left: " + seconds + " seconds");
+      var banner = document.createElement('h5')
+      var c = document.createTextNode('Your score is ' + score)
       
   //<---This if statement makes sure once the timer hits 0 seconds the Player A turn is over and Player B can play--->
       if (seconds <= 0){
           currentPlayer = "playerB" //kyle
   // //<---This if statement allows us to see that PlayerB should be playing plus it puts the speed, interval and size back to its orginal properties--->//
           if (currentPlayer === "playerB"){
-            clearInterval( theIntervalId );
+            
           playerTurn.innerHTML = ('Player B')};
-          
-          alert("Your score is " + score);
+          banner.appendChild(c);
+          document.body.appendChild(banner);
+          clearInterval(theIntervalId);
+            
   // //<---This if statement makes sure that score based off how many times the banana was clicked is assigned to the right player the first time its played--->//
           if(playerAScore == null){
               playerAScore = score
