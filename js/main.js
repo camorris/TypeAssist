@@ -10,36 +10,51 @@ var playerAScore = null
 var playerBScore = null
 var timesPlayed = 0
 var currentPlayer = 'playerA' 
-var newBanana= document.getElementById('start')
-var key = document.getElementsByClassName('key')
+var fasterButton = document.getElementById('start')
+var key = document.getElementsByClassName('key');
+var divs = document.querySelectorAll("key div");
 
-
-
-// function four() {
-//   var elements = document.getElementsByClassName("key");
-//   var i;
-//   for (i = 0; i < elements.length; i++) {
-//       elements[i].style.border = " .4rem solid blue";
-  
-      
-//   }
+// // var circle = document.querySelectorAll(".start");
+// // for(var i = 0; i < circle.length; i++){
+// //     circle[i].addEventListener('click', function(){
+// //          divs.classList.toggle('key2');
+// //     });
 // }
 
+function myFunction() {
+  var tired = document.querySelectorAll(".key");
+  for (var i=0; i < tired.length; i++){
+    tired[i].classList.add('key')
+  }
+}
+function myFunction2() {
+  var tired = document.querySelectorAll(".key");
+  for (var i=0; i < tired.length; i++){
+    tired[i].classList.add('key2')
+  }
+}
 
+function myFunction3() {
+  var tired = document.querySelectorAll(".key");
+  for (var i=0; i < tired.length; i++){
+    tired[i].classList.add('key3')
+  }
+}
 
   //<---This click function allows the players to click on the Banana Image, after the Banana button is clicked--->//
-      function addScore(e){
-      
-            if (currentPlayer === 'playerA'){
+      function addScore(){
+       
+            if (currentPlayer === 'playerA' ){
           score = score + 10;
+          
           pointsElementA.innerHTML = ("Score A: " + score )
-      } else if (currentPlayer === 'playerB'){
-          score = score + 10
+      } else if (currentPlayer === 'playerB' ){
+          score = score + 10;
+      
           pointsElementB.innerHTML = ("Score B: " + score)
           }
           // theIntervalId = setInterval(countDown, speed)
-          if (e.propertyName !== 'transform')return;
-          if(!audio)return;
+          
 
          
       }
@@ -87,6 +102,7 @@ var key = document.getElementsByClassName('key')
 function playSound(e){
 const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
 if(!audio)return;
 audio.currentTime = 0;
 audio.play();
@@ -113,6 +129,7 @@ keys.forEach(key => key.addEventListener('transitionend', removeTransition));
  
 
 
-window.addEventListener('keydown', playSound, )
-window.addEventListener('keydown', addScore,)
+window.addEventListener('keydown', playSound)
+window.addEventListener('keydown', addScore)
+
 

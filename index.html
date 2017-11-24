@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
+  
   <!-- <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script> -->
+  
+  
 </head>
 <body>
 
@@ -16,12 +19,16 @@
         <h2 id="pointsB">Score B: 0</h2>
         <h3 id="timeLeft">Time Left: 30 seconds</h3>
         <button id="clear">Reset</button>
-        <button id="start">Banana</button>
+        <button  class="start" id="start" onclick="myFunction()" >Easy</button>
+        <button  class="start" id="start" onclick="myFunction2()" >Medium</button>
+        <button  class="start" id="start" onclick="myFunction3()" >Hard</button>
+
+
         <txt id="turn">Player A</txt> 
         
 
-  <div class="keys">
-    <div data-key="65" class="key" id="AAA">
+  <section class="keys">
+    <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
@@ -61,7 +68,7 @@
         <kbd>;</kbd>
         <span class="sound">clap</span>
       </div>
-  </div>
+    </section>
 
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
@@ -75,8 +82,10 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
   <audio data-key="186" src="sounds/tink.wav"></audio>
   
+  
+    
 
 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
