@@ -33,6 +33,20 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
+}
+.key1  {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  margin-top: -400px;
+  font-size: 1.5rem;
+  padding: .5rem .25rem;
+  transition: all .07s ease;
+  width: 5rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
    -webkit-animation: fallingLeaves 10s infinite  linear;
   -moz-animation: fallingLeaves 10s infinite  linear; 
   

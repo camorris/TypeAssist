@@ -23,22 +23,40 @@ var divs = document.querySelectorAll("key div");
 
 function myFunction() {
   var tired = document.querySelectorAll(".key");
+  
   for (var i=0; i < tired.length; i++){
-    tired[i].classList.add('key')
+  if(tired.length > i){
+    tired[i].classList.toggle('key1')
+  }else{
+    console.log('fool')
   }
 }
+theIntervalId = setInterval(countDown, speed,)
+}
+
+
 function myFunction2() {
   var tired = document.querySelectorAll(".key");
   for (var i=0; i < tired.length; i++){
-    tired[i].classList.add('key2')
+    if(tired.length > i){
+      tired[i].classList.toggle('key2') 
+    }else{
+      console.log('fool')
+    }
   }
+  theIntervalId = setInterval(countDown, speed,)
 }
 
 function myFunction3() {
   var tired = document.querySelectorAll(".key");
   for (var i=0; i < tired.length; i++){
-    tired[i].classList.add('key3')
+    if(tired.length > i){
+      tired[i].classList.toggle('key3')
+    }else{
+      console.log('fool')
+    }
   }
+  theIntervalId = setInterval(countDown, speed,)
 }
 
   //<---This click function allows the players to click on the Banana Image, after the Banana button is clicked--->//
@@ -58,7 +76,7 @@ function myFunction3() {
 
          
       }
-      theIntervalId = setInterval(countDown, speed,)
+      
       
   //<---This if statement allows for score increases, size decreases, speed increases for each player--->//
     function countDown(){
