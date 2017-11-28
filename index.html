@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <span class="textSection">
+    <div class="textSection">
         <h2 id="pointsA">Score A: 0</h2>
         <h2 id="pointsB">Score B: 0</h2>
         <h2 id="timeLeft">Time Left: 30 seconds</h2>
@@ -25,11 +25,14 @@
         <button  class="start" id="start" onclick="myFunction()" >Easy</button>
         <button  class="start" id="start" onclick="myFunction2()" >Medium</button>
         <button  class="start" id="start" onclick="myFunction3()" >Hard</button>
-        
-    </span>
+    </div>
         
 
   <div class="keys">
+      <div data-key="85" class="key">
+          <kbd>U</kbd>
+          <span class="sound">clap</span>
+      </div>
     <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
@@ -66,12 +69,72 @@
       <kbd>L</kbd>
       <span class="sound">tink</span>
     </div>
-    <div data-key="186" class="key">
-        <kbd>;</kbd>
+    <div data-key="81" class="key">
+        <kbd>Q</kbd>
         <span class="sound">clap</span>
       </div>
-    </div>
+      <div data-key="87" class="key">
+          <kbd>W</kbd>
+          <span class="sound">clap</span>
+        </div>
+        <div data-key="69" class="key">
+            <kbd>E</kbd>
+            <span class="sound">clap</span>
+          </div>
 
+    <div data-key="82" class="key">
+        <kbd>R</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="84" class="key">
+          <kbd>T</kbd>
+          <span class="sound">clap</span>
+        </div>
+        <div data-key="89" class="key">
+            <kbd>Y</kbd>
+            <span class="sound">clap</span>
+          </div>
+          <div data-key="73" class="key">
+              <kbd>I</kbd>
+              <span class="sound">clap</span>
+            </div>
+            <div data-key="79" class="key">
+                <kbd>O</kbd>
+                <span class="sound">clap</span>
+              </div>
+              <div data-key="80" class="key">
+                  <kbd>P</kbd>
+                  <span class="sound">clap</span>
+                </div>
+                <div data-key="90" class="key">
+                    <kbd>Z</kbd>
+                    <span class="sound">clap</span>
+                  </div>
+                  <div data-key="88" class="key">
+                      <kbd>X</kbd>
+                      <span class="sound">clap</span>
+                    </div>
+                    <div data-key="67" class="key">
+                        <kbd>C</kbd>
+                        <span class="sound">clap</span>
+                      </div>
+                      <div data-key="86" class="key">
+                          <kbd>V</kbd>
+                          <span class="sound">clap</span>
+                        </div>
+                        <div data-key="66" class="key">
+                            <kbd>B</kbd>
+                            <span class="sound">clap</span>
+                          </div>
+                          <div data-key="78" class="key">
+                              <kbd>N</kbd>
+                              <span class="sound">clap</span>
+                            </div>
+                            <div data-key="77" class="key">
+                                <kbd>M</kbd>
+                                <span class="sound">clap</span>
+                              </div>
+</div>
 
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
@@ -82,10 +145,26 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
-  <audio data-key="186" src="sounds/tink.wav"></audio>
+  <audio data-key="81" src="sounds/tink.wav"></audio>
+  <audio data-key="87" src="sounds/clap.wav"></audio>
+  <audio data-key="69" src="sounds/hihat.wav"></audio>
+  <audio data-key="82" src="sounds/kick.wav"></audio>
+  <audio data-key="84" src="sounds/openhat.wav"></audio>
+  <audio data-key="89" src="sounds/boom.wav"></audio>
+  <audio data-key="73" src="sounds/ride.wav"></audio>
+  <audio data-key="79" src="sounds/snare.wav"></audio>
+  <audio data-key="80" src="sounds/tom.wav"></audio>
+  <audio data-key="90" src="sounds/tink.wav"></audio>
+  <audio data-key="88" src="sounds/clap.wav"></audio>
+  <audio data-key="67" src="sounds/hihat.wav"></audio>
+  <audio data-key="86" src="sounds/kick.wav"></audio>
+  <audio data-key="66" src="sounds/openhat.wav"></audio>
+  <audio data-key="78" src="sounds/boom.wav"></audio>
+  <audio data-key="77" src="sounds/ride.wav"></audio>
+  <audio data-key="85" src="sounds/snare.wav"></audio>
   
   
- 
+  <div class="mydiv"></div>
 
 
   <script src="js/main.js"></script>
