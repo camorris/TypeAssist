@@ -17,8 +17,9 @@ body,html {
   /* flex: 1; */
   /* align-items: center; */
   /* justify-content: center; */
-  /* margin-right: 200px; */
+  margin-left: 50px !important;
   width: 80%;
+  
 }
 
 .key  {
@@ -69,8 +70,8 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-   -webkit-animation: fallingLeaves 10s infinite  linear;
-  -moz-animation: fallingLeaves 10s infinite  linear; 
+   -webkit-animation: fallingLeaves 10s infinite linear;
+  -moz-animation: fallingLeaves 10s infinite linear; 
   
 }
 .key2  {
@@ -182,7 +183,7 @@ kbd {
 }
 @-moz-keyframes fallingLeaves {
   0% {
-  -webkit-transform: translate(20px, 0px) ;
+  -webkit-transform: translate(200px, 0px) ;
   
   }
   75% {

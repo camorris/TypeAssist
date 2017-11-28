@@ -23,8 +23,8 @@ resetBtn.addEventListener('click', function(e) {
   var x = 5
   if(x > 0 ){
   swal({
-    title: "Are you sure you want to delete this property?",
-    text: "This cannot be undone",
+    title: "You Reset Everything",
+    text: "Get Ready to Start Over",
     icon: "error",
     buttons: true,
     dangerMode: true,
@@ -44,7 +44,7 @@ document.addEventListener('keydown',function(e){
   if(y >= 0 && y <= window.innerHeight) {
     console.log('inside')
     switch(e.keyCode) {
-      case 88:
+      case 85:
       case 65:
       case 83:
       case 68:
@@ -54,8 +54,22 @@ document.addEventListener('keydown',function(e){
       case 74:
       case 75:
       case 76:
-      case 186:
-      case 85:
+      case 81:
+      case 87:
+      case 69:
+      case 82:
+      case 84:
+      case 89:
+      case 73:
+      case 79:
+      case 80:
+      case 90:
+      case 88:
+      case 67:
+      case 86:
+      case 66:
+      case 78:
+      case 77:
         addScore()
     }
   } else {
@@ -121,48 +135,89 @@ function shuffle(array) {
 function myFunction() {
   // reset the time on the DOM
   resetGame();
+  clearInterval(theIntervalId); 
   var keys = Array.from(document.querySelectorAll(".key"));
   var randomKeys = shuffle(keys);
   setTimeout(() => {
     // for (var i=0; i < tired.length; i++)
-    for(var i = 0; i < randomKeys.length; i++) {
-      if(randomKeys !== i){
+    // for(let i = 0; i < randomKeys.length; i++) {
+    //   // if(randomKeys !== i){
+    //   //   randomKeys[i].classList.add('key1')
+    //   // }
+    // }
+    var i = 0
+    function loopAddClass() {
+      setTimeout(()=> {
+        console.log(randomKeys[i])
         randomKeys[i].classList.add('key1')
-      } else{
-        randomKeys[i].classList.remove('key1')
-      }
+        i++                     //  increment the counter
+        if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
+           loopAddClass();             //  ..  again which will trigger another 
+        }       
+      }, 1000)
     }
+    loopAddClass()
   }, 100)
-
+  
   theIntervalId = setInterval(countDown, speed)
 }
 
 
 function myFunction2() {
   resetGame();
-  clearInterval(theIntervalId);
-  var tired = document.querySelectorAll(".key");
-  for (var i=0; i < tired.length; i++){
-    if(tired.length > i){
-      tired[i].classList.toggle('key2') 
-    }else{
-      console.log('fool')
+  clearInterval(theIntervalId); 
+  var keys = Array.from(document.querySelectorAll(".key"));
+  var randomKeys = shuffle(keys);
+  setTimeout(() => {
+    // for (var i=0; i < tired.length; i++)
+    // for(let i = 0; i < randomKeys.length; i++) {
+    //   // if(randomKeys !== i){
+    //   //   randomKeys[i].classList.add('key1')
+    //   // }
+    // }
+    var i = 0
+    function loopAddClass() {
+      setTimeout(()=> {
+        console.log(randomKeys[i])
+        randomKeys[i].classList.add('key2')
+        i++                     //  increment the counter
+        if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
+           loopAddClass();             //  ..  again which will trigger another 
+        }       
+      }, 1000)
     }
-  }
+    loopAddClass()
+  }, 100)
+  
   theIntervalId = setInterval(countDown, speed)
 }
 
 function myFunction3() {
-  clearInterval(theIntervalId);
   resetGame();
-  var tired = document.querySelectorAll(".key");
-  for (var i=0; i < tired.length; i++){
-    if(tired.length > i){
-      tired[i].classList.toggle('key3')
-    }else{
-      console.log('fool')
+  clearInterval(theIntervalId); 
+  var keys = Array.from(document.querySelectorAll(".key"));
+  var randomKeys = shuffle(keys);
+  setTimeout(() => {
+    // for (var i=0; i < tired.length; i++)
+    // for(let i = 0; i < randomKeys.length; i++) {
+    //   // if(randomKeys !== i){
+    //   //   randomKeys[i].classList.add('key1')
+    //   // }
+    // }
+    var i = 0
+    function loopAddClass() {
+      setTimeout(()=> {
+        console.log(randomKeys[i])
+        randomKeys[i].classList.add('key3')
+        i++                     //  increment the counter
+        if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
+           loopAddClass();             //  ..  again which will trigger another 
+        }       
+      }, 1000)
     }
-  }
+    loopAddClass()
+  }, 100)
+  
   theIntervalId = setInterval(countDown, speed)
 }
 
@@ -202,22 +257,25 @@ function myFunction3() {
   //<---This if statement makes sure once the timer hits 0 seconds the Player A turn is over and Player B can play--->
       if (seconds <= 0){
           currentPlayer = "playerB" //kyle
-          clearInterval(theIntervalId)
+          
+         
+         
           
   // //<---This if statement allows us to see that PlayerB should be playing plus it puts the speed, interval and size back to its orginal properties--->//
   
   if (currentPlayer === "playerB"){
-       
+   
+    
           playerTurn.innerHTML = ('Player B')};
-          // alert("Your score is " + score);
-          swal({
-            title: "Pass the Laptop",
-            text: "Player 2 Show us what you got!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          }) ;
+          alert("Your score is " + score);
           
+          // swal({
+          //   title: "Pass the Laptop",
+          //   text: "Player 2 Show us what you got!",
+          //   icon: "warning",
+          //   buttons: true,
+          //   dangerMode: true,
+          // }) ;
           
             
   // //<---This if statement makes sure that score based off how many times the banana was clicked is assigned to the right player the first time its played--->//
@@ -231,7 +289,7 @@ function myFunction3() {
           if(timesPlayed == 2) {
               if(playerAScore > playerBScore) {
                 // alert("Player 1 wins")
-              
+              resetGame();
                 swal({
                   title: "Player 1 You've done it",
                   text: "YOU WON!!!",
@@ -245,6 +303,7 @@ function myFunction3() {
               }
               else if(playerBScore > playerAScore) {
                 // alert("Player 2 wins")
+                resetGame();
                 swal({
                   title: "Player 2 You've done it",
                   text: " YOU WON!!!",
@@ -256,7 +315,7 @@ function myFunction3() {
                  
               } else { 
                 
-              
+                resetGame();
                   swal({
                     title: "Amazing",
                     text: "It's a Tie",
