@@ -19,6 +19,18 @@ var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 var mydiv = document.getElementsByClassName('.mydiv');
 
+resetBtn.addEventListener('click', function(e) {
+  var x = 5
+  if(x > 0 ){
+  swal({
+    title: "Are you sure you want to delete this property?",
+    text: "This cannot be undone",
+    icon: "error",
+    buttons: true,
+    dangerMode: true,
+  })
+  }
+})
 document.addEventListener('keydown',function(e){     
   console.log(e.keyCode)
   const keyDiv = document.querySelector(`div[data-key='${e.keyCode}']`)
@@ -31,25 +43,25 @@ document.addEventListener('keydown',function(e){
   // } 
   if(y >= 0 && y <= window.innerHeight) {
     console.log('inside')
+    switch(e.keyCode) {
+      case 88:
+      case 65:
+      case 83:
+      case 68:
+      case 70:
+      case 71:
+      case 72:
+      case 74:
+      case 75:
+      case 76:
+      case 186:
+      case 85:
+        addScore()
+    }
   } else {
-    score = score - 10
+    minusScore()
   }
 
-  switch(e.keyCode) {
-    case 88:
-    case 65:
-    case 83:
-    case 68:
-    case 70:
-    case 71:
-    case 72:
-    case 74:
-    case 75:
-    case 76:
-    case 186:
-    case 85:
-      addScore()
-    }
 });
 
 
@@ -87,19 +99,37 @@ document.addEventListener('keydown',function(e){
 }}
 
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 function myFunction() {
   // reset the time on the DOM
   resetGame();
-  var tired = document.querySelectorAll(".key");
-  
+  var keys = Array.from(document.querySelectorAll(".key"));
+  var randomKeys = shuffle(keys);
   setTimeout(() => {
-    for (var i=0; i < tired.length; i++){
-      if(tired.length > i){
-        tired[i].classList.toggle('key1')
-      }else{
-        console.log('fool')
+    // for (var i=0; i < tired.length; i++)
+    for(var i = 0; i < randomKeys.length; i++) {
+      if(randomKeys !== i){
+        randomKeys[i].classList.add('key1')
+      } else{
+        randomKeys[i].classList.remove('key1')
       }
     }
   }, 100)
@@ -154,12 +184,12 @@ function myFunction3() {
          
           score = score - 5;
 
-          pointsElementA.innertHTML = ("Score A: -" + score)
+          pointsElementA.innerHTML = ("Score A: " + score)
 
         } else if (currentPlayer === 'playerB') {
           score = score - 5;
 
-          pointsElementA.innerHTML = ('Score B: -' + score)
+          pointsElementA.innerHTML = ('Score B: ' + score)
         }
       }
       // theIntervalId = setInterval(countDown, speed,)
@@ -172,12 +202,22 @@ function myFunction3() {
   //<---This if statement makes sure once the timer hits 0 seconds the Player A turn is over and Player B can play--->
       if (seconds <= 0){
           currentPlayer = "playerB" //kyle
+          clearInterval(theIntervalId)
+          
   // //<---This if statement allows us to see that PlayerB should be playing plus it puts the speed, interval and size back to its orginal properties--->//
   
   if (currentPlayer === "playerB"){
        
           playerTurn.innerHTML = ('Player B')};
-          alert("Your score is " + score);
+          // alert("Your score is " + score);
+          swal({
+            title: "Pass the Laptop",
+            text: "Player 2 Show us what you got!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }) ;
+          
           
             
   // //<---This if statement makes sure that score based off how many times the banana was clicked is assigned to the right player the first time its played--->//
@@ -190,17 +230,41 @@ function myFunction3() {
   // //<---These if statements makes sure an alert is displayed to let us know who won based off a comparison of player score after the second player plays the game--->//
           if(timesPlayed == 2) {
               if(playerAScore > playerBScore) {
-                alert("Player 1 wins")
-                 resetGame();
+                // alert("Player 1 wins")
+              
+                swal({
+                  title: "Player 1 You've done it",
+                  text: "YOU WON!!!",
+                  icon: "success",
+                  buttons: true,
+                  dangerMode: true,
+                });
+                
+               
               
               }
               else if(playerBScore > playerAScore) {
-                alert("Player 2 wins")
-                resetGame();
+                // alert("Player 2 wins")
+                swal({
+                  title: "Player 2 You've done it",
+                  text: " YOU WON!!!",
+                  icon: "success",
+                  buttons: true,
+                  dangerMode: true,
+                });
+               
                  
               } else { 
-                  alert ("Its a Tie you both are AWESOME")
-                  resetGame();
+                
+              
+                  swal({
+                    title: "Amazing",
+                    text: "It's a Tie",
+                    icon: "Warning",
+                    buttons: true,
+                    dangerMode: true,
+                  });
+                
               }
           }
         
