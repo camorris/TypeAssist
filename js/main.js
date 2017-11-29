@@ -18,6 +18,7 @@ var theIntervalId = null
 var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 var mydiv = document.getElementsByClassName('.mydiv');
+var addKeysLoopInterval = null
 
 resetBtn.addEventListener('click', function(e) {
   var x = 5
@@ -90,17 +91,14 @@ document.addEventListener('keydown',function(e){
 
  function resetGame(){
   clearInterval(theIntervalId)
-  var tired = document.querySelectorAll(".key");
-  for (var i=0; i < tired.length; i++){
-    if(tired.length > i){
-      tired[i].classList.add('key');
-      tired[i].classList.remove('key1');
-      tired[i].classList.remove('key2');
-      tired[i].classList.remove('key3');
-      clearInterval(theIntervalId);
-    } else{ 
-      console.log('dummy')
-    };
+  clearTimeout(addKeysLoopInterval)
+  var keys = document.querySelectorAll(".key");
+  for (let i=0; i < keys.length; i++){
+    keys[i].classList.remove('key1');
+    keys[i].classList.remove('key2');
+    keys[i].classList.remove('key3');    
+  }
+
   score = 0
   pointsElementA.innerHTML = ("Score A: 0") 
   pointsElementB.innerHTML = ("Score B: 0")
@@ -108,9 +106,8 @@ document.addEventListener('keydown',function(e){
   playerTurn.innerHtml = (`${!currentPlayer}`)
   speed = 1000
   seconds = 30
-  timeLeftElement.innerHTML = ("Time Left: " + seconds + " seconds")
-  
-}}
+  timeLeftElement.innerHTML = ("Time Left: " + seconds + " seconds")  
+}
 
 
 function shuffle(array) {
@@ -138,7 +135,8 @@ function myFunction() {
   clearInterval(theIntervalId); 
   var keys = Array.from(document.querySelectorAll(".key"));
   var randomKeys = shuffle(keys);
-  setTimeout(() => {
+  
+  addKeysLoopInterval = setTimeout(() => {
     // for (var i=0; i < tired.length; i++)
     // for(let i = 0; i < randomKeys.length; i++) {
     //   // if(randomKeys !== i){
@@ -149,7 +147,7 @@ function myFunction() {
     function loopAddClass() {
       setTimeout(()=> {
         console.log(randomKeys[i])
-        randomKeys[i].classList.add('key1')
+        randomKeys[i].classList.toggle('key1')
         i++                     //  increment the counter
         if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
            loopAddClass();             //  ..  again which will trigger another 
@@ -158,6 +156,8 @@ function myFunction() {
     }
     loopAddClass()
   }, 100)
+
+  console.log(addKeysLoopInterval)
   
   theIntervalId = setInterval(countDown, speed)
 }
@@ -179,7 +179,7 @@ function myFunction2() {
     function loopAddClass() {
       setTimeout(()=> {
         console.log(randomKeys[i])
-        randomKeys[i].classList.add('key2')
+        randomKeys[i].classList.toggle('key2')
         i++                     //  increment the counter
         if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
            loopAddClass();             //  ..  again which will trigger another 
@@ -208,7 +208,7 @@ function myFunction3() {
     function loopAddClass() {
       setTimeout(()=> {
         console.log(randomKeys[i])
-        randomKeys[i].classList.add('key3')
+        randomKeys[i].classList.toggle('key3')
         i++                     //  increment the counter
         if (i < randomKeys.length) {            //  if the counter < 10, call the loop function
            loopAddClass();             //  ..  again which will trigger another 
@@ -225,8 +225,7 @@ function myFunction3() {
       function addScore(){
        
             if (currentPlayer === 'playerA' ){
-          score = score + 10;
-          
+          score = score + 10; 
           pointsElementA.innerHTML = ("Score A: " + score )
       } else if (currentPlayer === 'playerB' ){
           score = score + 10;
@@ -238,13 +237,11 @@ function myFunction3() {
         if(currentPlayer === 'playerA'){
          
           score = score - 5;
-
           pointsElementA.innerHTML = ("Score A: " + score)
 
         } else if (currentPlayer === 'playerB') {
           score = score - 5;
-
-          pointsElementA.innerHTML = ('Score B: ' + score)
+          pointsElementB.innerHTML = ('Score B: ' + score)
         }
       }
       // theIntervalId = setInterval(countDown, speed,)
@@ -289,43 +286,54 @@ function myFunction3() {
           if(timesPlayed == 2) {
               if(playerAScore > playerBScore) {
                 // alert("Player 1 wins")
-              resetGame();
+              
                 swal({
                   title: "Player 1 You've done it",
                   text: "YOU WON!!!",
                   icon: "success",
                   buttons: true,
                   dangerMode: true,
+                }).then( ()=>{
+                  resetGame();
                 });
-                
+               
                
               
               }
               else if(playerBScore > playerAScore) {
                 // alert("Player 2 wins")
-                resetGame();
+                
                 swal({
                   title: "Player 2 You've done it",
                   text: " YOU WON!!!",
                   icon: "success",
                   buttons: true,
                   dangerMode: true,
+                }).then( ()=>{
+                  resetGame();
                 });
+
+               
                
                  
               } else { 
                 
-                resetGame();
+             
                   swal({
                     title: "Amazing",
                     text: "It's a Tie",
                     icon: "Warning",
                     buttons: true,
                     dangerMode: true,
+                  }).then( ()=>{
+                    resetGame();
+                    clearInterval
                   });
+                  
                 
               }
           }
+        
         
   //<---These lines of code allow the timer to start counting down again for player B--->//
           theIntervalId = setInterval(countDown,1000)
