@@ -11,64 +11,36 @@
 
 ### Purpose
 ------
-  This web application was designed to help 
-***important information can go here.*** 
+  This web application was designed to help users better their typing skills. Using all the alphabetic keys your objective is to get the most points while the key is in view. Be careful though once the key is out of view do not hit that key or else you score will deduct five points.
+
 
 ### User Stories and ERD Diagrams
 ---
-The user stories and ERD diagrams can be found on the trello board at this [link](https://trello.com/b/YDgBtdo4/partmint)
+There is no trello board for this application
 
 ### Used Technologies
 ---
 
-Partmint makes use of key API's and Databases
 
 HTML: To Display text on different pages of the site
 
-CSS/Bootstrap: To style the text, navbar, modal,carousel ,links and forms found through out the site 
+CSS: To style the text, navbar, modal,carousel ,links and forms found through out the site 
 
 Javascript: Create the functionality between the users(property owner/resident) and server.
 
-Jquery: to traverse the DOM 
-
-
-Ajax: Used ajax to create chate between residents adn property owner
-
-Node.js: allows us to runs javascript not in the browser. Implemented Node Module Packages: 
-
-	 Express
-	 Mongoose
-	 Body-Parser
-	 Morgan
-	 EJS
-	 Express-EJS-Layouts
-	 Connect-Flash
-	 Cookie-Parser
-	 Express-Session
-	 Underscore
-	 Passport
-	 Dotenv
-	 Connect-MongoDB-Session
-	 Sweetalert
-
-MongoDb: A database to store information about the Property Owner, Resident and Property.
-
-Stripe: a payment API so residents can make payments for their rent
-
-
-
+Sweetlaert: To notify players who won and lost
 
 ### Unsolved Problems 
 ---
- Currently the team have not implemented complete security functions to Partmint. In 
-	in addition there are still design elements that need to changed to create a better user expereince. 
+ Currently there are issues with keys moving to the right as they fall. 
+ Countdown does not go all the way to Zero for player B. 
 
 ### How to Use
 ---
-Go to https://partmint.herokuapp.com to check out the site. Click on `All Properties` to browse through the different properties available for rent. Click on a specific property to Apply for that apartment. From the main page you can also  Log in to view your dashboard as a resident or owner. From the dashboard you can view information regarding rent, properties,group notices and indiviudal notices.
+Pick your desired level for both players easy, medium or hard. The keys will start fall so press the corresponding keys to gain points. Press reset to restart the game.
 
 ### References
 ---
- 	- https://stripe.com/docs
- 	- https://trello.com/b/YDgBtdo4/partmint
+ 	- https://sweetalert2.com/
+ 	- https://javascript30.com/
 	- https://fonts.google.com/
