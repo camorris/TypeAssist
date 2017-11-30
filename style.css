@@ -14,9 +14,6 @@ body,html {
 .keys {
   display: block;
   margin-top: -200px;
-  /* flex: 1; */
-  /* align-items: center; */
-  /* justify-content: center; */
   margin-left: 50px !important;
   width: 80%;
   
@@ -28,11 +25,9 @@ body,html {
   margin: 1rem;
   display: inline-block;
   margin-top: -600px !important;
-
   font-size: 1.5rem;
   padding: .5rem .25rem;
   transition: all .07s ease;
-  /* width: 5rem; */
   text-align: center;
   color: white;
   background: rgba(0,0,0,0.4);
@@ -40,23 +35,6 @@ body,html {
 }
 
 
-
-#secondKeys{
-  border: .4rem solid black;
-  border-radius: .5rem;
-  margin: 1rem;
-  
-  margin-top: -600px !important;
-  font-size: 1.5rem;
-  padding: .5rem .25rem;
-  transition: all .07s ease;
-  width: 5rem;
-  text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
-  
-}
 .key1  {
   border: .4rem solid black;
   border-radius: .5rem;
@@ -70,8 +48,8 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-   -webkit-animation: fallingLeaves 12s infinite linear;
-  -moz-animation: fallingLeaves 12s infinite linear; 
+   -webkit-animation: fallingKeys 12s infinite linear;
+  -moz-animation: fallingKeys 12s infinite linear; 
   
 }
 .key2  {
@@ -87,8 +65,8 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-   -webkit-animation: fallingLeaves 6s infinite  linear;
-  -moz-animation: fallingLeaves 6s infinite  linear; 
+   -webkit-animation: fallingKeys 6s infinite  linear;
+  -moz-animation: fallingKeys 6s infinite  linear; 
   
 }
 .key3  {
@@ -104,8 +82,8 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-   -webkit-animation: fallingLeaves 3s infinite  linear;
-  -moz-animation: fallingLeaves 3s infinite  linear; 
+   -webkit-animation: fallingKeys 3s infinite  linear;
+  -moz-animation: fallingKeys 3s infinite  linear; 
   
 }
 .playing {
@@ -128,8 +106,7 @@ kbd {
 }
 
 
-   
-    div:nth-child(5n+5) {
+ div:nth-child(5n+5) {
 
     -webkit-animation-delay: 1.3s;
     -moz-animation-delay: 1.3s;
@@ -163,7 +140,7 @@ kbd {
     -webkit-animation-delay: 8s;
     -moz-animation-delay: 8s;
 }
-@-webkit-keyframes fallingLeaves {
+@-webkit-keyframes fallingKeys {
   
   0%  {  
   -webkit-transform: translate(200px, 0px) ;  
@@ -179,7 +156,7 @@ kbd {
   
   }
 }
-@-moz-keyframes fallingLeaves {
+@-moz-keyframes fallingKeys {
   0% {
   -webkit-transform: translate(200px, 0px) ;
   
@@ -194,26 +171,11 @@ kbd {
   }
 } 
 
-.circle {
-  width: 100px;
-  height: 100px;
-  border: solid 3px black;
-  border-radius: 100%;
-  float: left;
-  margin: 1%;
-}
-
-
-.effect {
-  background-color: green;
-  border-color: blue;
-}
 
 button{
   color: black;
   background-color: #00a2ff55;
   display: block !important;
-  
   text-align: center;
   margin-bottom: 10px;
   padding: 5px;
@@ -227,10 +189,12 @@ button{
  
 }
 
-button:hover{
+.start:hover{
   background-color: cyan;
 }
-
+ .swal-button:hover {
+ transform: scale(1.1,1.1);
+ }
 .textSection{
   display: block;
   border:1px solid rgba(128, 128, 128, 0.24);
@@ -239,7 +203,6 @@ button:hover{
   margin-left: 10px;
   margin-left:auto;
   margin-right:auto;
-  /* width:20%; */
   float: left;
   margin-top: 150px;
   text-align: right;
@@ -249,11 +212,4 @@ button:hover{
 
 h5{
   font-size: 50px;
-}
-
-.mydiv{
-  display:none;
-  width: 50px;
-  height: 50px;
-  background: red;
 }

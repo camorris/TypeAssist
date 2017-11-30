@@ -39,9 +39,7 @@ document.addEventListener('keydown',function(e){
   var y = rect.top;
   console.log(y)
 
-  // if(y < -346.5){
-  //   minusScore();
-  // } 
+
   if(y >= 0 && y <= window.innerHeight) {
     console.log('inside')
     switch(e.keyCode) {
@@ -82,16 +80,9 @@ document.addEventListener('keydown',function(e){
 
 
 
-// document.addEventListener('keydown',function(e){
-//   if(e.keyCode == 65 ) {
-//       minusScore();
-//   } 
-// });
-
-
  function resetGame(){
-  clearInterval(theIntervalId)
-  clearTimeout(addKeysLoopInterval)
+  clearInterval(theIntervalId);
+  clearTimeout(addKeysLoopInterval);
   var keys = document.querySelectorAll(".key");
   for (let i=0; i < keys.length; i++){
     keys[i].classList.remove('key1');
@@ -137,12 +128,7 @@ function myFunction() {
   var randomKeys = shuffle(keys);
   
   addKeysLoopInterval = setTimeout(() => {
-    // for (var i=0; i < tired.length; i++)
-    // for(let i = 0; i < randomKeys.length; i++) {
-    //   // if(randomKeys !== i){
-    //   //   randomKeys[i].classList.add('key1')
-    //   // }
-    // }
+  
     var i = 0
     function loopAddClass() {
       setTimeout(()=> {
@@ -169,12 +155,7 @@ function myFunction2() {
   var keys = Array.from(document.querySelectorAll(".key"));
   var randomKeys = shuffle(keys);
   setTimeout(() => {
-    // for (var i=0; i < tired.length; i++)
-    // for(let i = 0; i < randomKeys.length; i++) {
-    //   // if(randomKeys !== i){
-    //   //   randomKeys[i].classList.add('key1')
-    //   // }
-    // }
+   
     var i = 0
     function loopAddClass() {
       setTimeout(()=> {
@@ -198,12 +179,6 @@ function myFunction3() {
   var keys = Array.from(document.querySelectorAll(".key"));
   var randomKeys = shuffle(keys);
   setTimeout(() => {
-    // for (var i=0; i < tired.length; i++)
-    // for(let i = 0; i < randomKeys.length; i++) {
-    //   // if(randomKeys !== i){
-    //   //   randomKeys[i].classList.add('key1')
-    //   // }
-    // }
     var i = 0
     function loopAddClass() {
       setTimeout(()=> {
@@ -221,7 +196,6 @@ function myFunction3() {
   theIntervalId = setInterval(countDown, speed)
 }
 
-  //<---This click function allows the players to click on the Banana Image, after the Banana button is clicked--->//
       function addScore(){
        
             if (currentPlayer === 'playerA' ){
@@ -244,48 +218,28 @@ function myFunction3() {
           pointsElementB.innerHTML = ('Score B: ' + score)
         }
       }
-      // theIntervalId = setInterval(countDown, speed,)
-      
-  //<---This if statement allows for score increases, size decreases, speed increases for each player--->//
+    
     function countDown(){
       seconds = seconds - 1;
       timeLeftElement.innerHTML = ( "Time Left: " + seconds + " seconds");
     
-  //<---This if statement makes sure once the timer hits 0 seconds the Player A turn is over and Player B can play--->
       if (seconds <= 0){
           currentPlayer = "playerB" //kyle
-          
-         
-         
-          
-  // //<---This if statement allows us to see that PlayerB should be playing plus it puts the speed, interval and size back to its orginal properties--->//
-  
-  if (currentPlayer === "playerB"){
+            
+      if (currentPlayer === "playerB"){
    
     
           playerTurn.innerHTML = ('Player B')};
           alert("Your score is " + score);
-          
-          // swal({
-          //   title: "Pass the Laptop",
-          //   text: "Player 2 Show us what you got!",
-          //   icon: "warning",
-          //   buttons: true,
-          //   dangerMode: true,
-          // }) ;
-          
             
-  // //<---This if statement makes sure that score based off how many times the banana was clicked is assigned to the right player the first time its played--->//
           if(playerAScore == null){
               playerAScore = score
           } else {
               playerBScore = score
           }
               timesPlayed += 1
-  // //<---These if statements makes sure an alert is displayed to let us know who won based off a comparison of player score after the second player plays the game--->//
           if(timesPlayed == 2) {
               if(playerAScore > playerBScore) {
-                // alert("Player 1 wins")
               
                 swal({
                   title: "Player 1 You've done it",
@@ -294,14 +248,14 @@ function myFunction3() {
                   buttons: true,
                   dangerMode: true,
                 }).then( ()=>{
-                  resetGame();
+                  location.reload();
                 });
                
                
               
               }
               else if(playerBScore > playerAScore) {
-                // alert("Player 2 wins")
+                
                 
                 swal({
                   title: "Player 2 You've done it",
@@ -310,7 +264,7 @@ function myFunction3() {
                   buttons: true,
                   dangerMode: true,
                 }).then( ()=>{
-                  resetGame();
+                  location.reload();
                 });
 
                
@@ -326,8 +280,8 @@ function myFunction3() {
                     buttons: true,
                     dangerMode: true,
                   }).then( ()=>{
-                    resetGame();
-                    clearInterval
+                    location.reload();
+                   
                   });
                   
                 
@@ -335,7 +289,6 @@ function myFunction3() {
           }
         
         
-  //<---These lines of code allow the timer to start counting down again for player B--->//
           theIntervalId = setInterval(countDown,1000)
           seconds = 30
           timeLeftElement.innerHTML = "Time Left: " + seconds + " seconds"
@@ -373,6 +326,6 @@ keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 
 window.addEventListener('keydown', playSound)
-// window.addEventListener('keydown', addScore)
+
 
 
