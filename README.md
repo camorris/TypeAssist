@@ -1,5 +1,6 @@
 # Type Assist :computer:
 	Developed By: Chase Morris 
+  https://camorris.github.io/TypeAssist/s
 ## Table of Contents
 
 - Purpose
